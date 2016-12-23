@@ -76,7 +76,7 @@ def get_counts():
     # get url
     data = json.loads(request.data.decode())
     url = data["url"]
-    if 'http://' not in url[:7]:
+    if 'http://' not in url[:7] and 'https://' not in url[:8]:
         url = 'http://' + url
     # start job
     job = q.enqueue_call(
